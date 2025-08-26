@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Builder's Advantage</title>
+    <!-- Use Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- Main Container -->
+    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 w-full max-w-4xl flex flex-col items-center">
+        
+        <!-- App Title -->
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-800 mb-6 md:mb-8 tracking-tight">
+            The Builder's Advantage
+        </h1>
+
+        <!-- Storyboard Container -->
+        <div id="storyboard" class="w-full relative overflow-hidden h-[450px] md:h-[500px] mb-8">
+            <!-- Panel 1: The Problem (Project Timeline) -->
+            <div id="panel-1" class="story-panel absolute top-0 left-0 w-full h-full p-4 flex flex-col items-center justify-center text-center transition-opacity duration-500 ease-in-out">
+                <div class="text-7xl mb-4 opacity-70">🚧</div>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-gray-700">The Project Bottleneck</h2>
+                <p class="text-md md:text-lg text-gray-600">
+                    Drywall finishing is always the choke point. The wait time between coats and the hours of sanding slow down the entire project. It's a schedule killer.
+                </p>
+            </div>
+
+            <!-- Panel 2: The Solution (A Better Way) -->
+            <div id="panel-2" class="story-panel absolute top-0 left-0 w-full h-full p-4 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-in-out">
+                <div class="text-7xl mb-4 opacity-70">💡</div>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-gray-700">Optimizing Our Process</h2>
+                <p class="text-md md:text-lg text-gray-600">
+                    My crew started using Muddskip. It's a simple additive that promised to improve our workflow and get us to the finish line faster.
+                </p>
+            </div>
+
+            <!-- Panel 3: Wet on Wet Coats -->
+            <div id="panel-3" class="story-panel absolute top-0 left-0 w-full h-full p-4 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-in-out">
+                <div class="text-7xl mb-4 opacity-70">💦🔄</div>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-gray-700">Less Wait Time, More Progress</h2>
+                <p class="text-md md:text-lg text-gray-600">
+                    With Muddskip, we can apply wet-on-wet coats, often eliminating the need for a full day of waiting. This shaves days, or even weeks, off our project timelines.
+                </p>
+            </div>
+
+            <!-- Panel 4: Reduced Labor -->
+            <div id="panel-4" class="story-panel absolute top-0 left-0 w-full h-full p-4 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-in-out">
+                <div class="text-7xl mb-4 opacity-70">📉</div>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-gray-700">Saving Time and Money</h2>
+                <p class="text-md md:text-lg text-gray-600">
+                    A smoother application means significantly less sanding. Less sanding means fewer labor hours on-site, which directly translates into a lower cost for my clients and higher profit margins for my business.
+                </p>
+            </div>
+
+            <!-- Panel 5: Durable Results -->
+            <div id="panel-5" class="story-panel absolute top-0 left-0 w-full h-full p-4 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-in-out">
+                <div class="text-7xl mb-4 opacity-70">✅</div>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-gray-700">No More Call-backs</h2>
+                <p class="text-md md:text-lg text-gray-600">
+                    Muddskip strengthens the finished product. This means the mud won't crack, even over time, which protects my reputation and eliminates frustrating and costly call-backs.
+                </p>
+            </div>
+
+            <!-- Panel 6: The Outcome (The Bottom Line) -->
+            <div id="panel-6" class="story-panel absolute top-0 left-0 w-full h-full p-4 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-in-out">
+                <div class="text-7xl mb-4 opacity-70">💼</div>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-gray-700">A Smarter Way to Build</h2>
+                <p class="text-md md:text-lg text-gray-600">
+                    Muddskip is now an essential part of our toolkit. It helps us deliver a superior product, stay ahead of schedule, and keep our clients happy. It’s simply good for business.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex space-x-4">
+            <button id="prevBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+                Previous
+            </button>
+            <button id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-200 shadow-md">
+                Next
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Get all the storyboard panels and navigation buttons
+        const panels = document.querySelectorAll('.story-panel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        // Keep track of the current panel index
+        let currentPanelIndex = 0;
+
+        /**
+         * Hides all panels and shows only the one at the current index.
+         * Also updates the state of the navigation buttons.
+         */
+        const showCurrentPanel = () => {
+            // Hide all panels by setting opacity to 0
+            panels.forEach(panel => {
+                panel.classList.remove('opacity-100');
+                panel.classList.add('opacity-0');
+            });
+            
+            // Show the current panel by setting opacity to 100
+            panels[currentPanelIndex].classList.remove('opacity-0');
+            panels[currentPanelIndex].classList.add('opacity-100');
+
+            // Disable the 'Previous' button if we are on the first panel
+            prevBtn.disabled = (currentPanelIndex === 0);
+            
+            // Disable the 'Next' button if we are on the last panel
+            nextBtn.disabled = (currentPanelIndex === panels.length - 1);
+        };
+
+        // Add event listener for the 'Next' button
+        nextBtn.addEventListener('click', () => {
+            // Check if we are not at the last panel
+            if (currentPanelIndex < panels.length - 1) {
+                currentPanelIndex++;
+                showCurrentPanel();
+            }
+        });
+
+        // Add event listener for the 'Previous' button
+        prevBtn.addEventListener('click', () => {
+            // Check if we are not at the first panel
+            if (currentPanelIndex > 0) {
+                currentPanelIndex--;
+                showCurrentPanel();
+            }
+        });
+
+        // Initialize the storyboard on page load
+        showCurrentPanel();
+    </script>
+</body>
+</html>
